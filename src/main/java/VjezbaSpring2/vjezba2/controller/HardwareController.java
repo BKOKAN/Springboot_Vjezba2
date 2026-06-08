@@ -22,12 +22,12 @@ public class HardwareController {
         return service.getAllHardware();
     }
 
-    @GetMapping("/{sifra}")
+    @GetMapping("/sifra/{sifra}")
     public HardwareDTO getHardwareBySifra(@PathVariable String sifra) {
         return service.getHardwareBySifra(sifra);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public HardwareDTO findbyId(@PathVariable int id){
         return service.findbyId(id);
     }
