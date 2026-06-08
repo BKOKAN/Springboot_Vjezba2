@@ -26,4 +26,27 @@ public class HardwareController {
     public HardwareDTO getHardwareBySifra(@PathVariable String sifra) {
         return service.getHardwareBySifra(sifra);
     }
+
+    @GetMapping("/{id}")
+    public HardwareDTO findbyId(@PathVariable int id){
+        return service.findbyId(id);
+    }
+
+    @PostMapping
+    public HardwareDTO create(@RequestBody Hardware hardware) {
+        return service.addHardware(hardware);
+    }
+
+    @PutMapping("/{id}")
+    public HardwareDTO updateHardware(
+            @PathVariable int id,
+            @RequestBody Hardware hardware) {
+
+        return service.updateHardware(id, hardware);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable int id) {
+        return service.delete(id);
+    }
 }

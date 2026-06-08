@@ -11,5 +11,13 @@ public interface HardwareService {
 
     List<HardwareDTO> getAllHardware();
 
+    HardwareDTO addHardware(Hardware hardware);
+
     HardwareDTO getHardwareBySifra(String sifra);
+
+    HardwareDTO findbyId(int id);
+
+    HardwareDTO updateHardware(int id, Hardware hardware);
+
+    boolean delete(int id);
 }

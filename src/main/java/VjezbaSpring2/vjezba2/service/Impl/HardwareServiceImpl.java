@@ -25,10 +25,24 @@ public class HardwareServiceImpl implements HardwareService {
                 .map(element -> new HardwareDTO(
                         element.getNaziv(),
                         element.getCijena(),
-                        element.getTip()))
+                        element.getTip(),
+                        element.getId()
+                ))
                 .toList();
     }
 
+    @Override
+    public HardwareDTO addHardware(Hardware hardware) {
+
+        Hardware saved = repository.addHardware(hardware);
+
+        return new HardwareDTO(
+                saved.getNaziv(),
+                saved.getCijena(),
+                saved.getTip(),
+                saved.getId()
+        );
+    }
     @Override
     public HardwareDTO getHardwareBySifra(String sifra) {
 
@@ -41,7 +55,43 @@ public class HardwareServiceImpl implements HardwareService {
         return new HardwareDTO(
                 hardware.getNaziv(),
                 hardware.getCijena(),
-                hardware.getTip()
+                hardware.getTip(),
+                hardware.getId()
         );
+    }
+    @Override
+    public HardwareDTO findbyId(int id){
+        Hardware hardware = repository.findbyId(id);
+
+        if (hardware == null) {
+            return null;
+        }
+
+        return new HardwareDTO(
+                hardware.getNaziv(),
+                hardware.getCijena(),
+                hardware.getTip(),
+                hardware.getId()
+        );
+    }
+    @Override
+    public HardwareDTO updateHardware(int id, Hardware hardware) {
+
+        Hardware updated = repository.updateHardware(id, hardware);
+
+        if (updated == null) {
+            return null;
+        }
+
+        return new HardwareDTO(
+                updated.getNaziv(),
+                updated.getCijena(),
+                updated.getTip(),
+                updated.getId()
+        );
+    }
+    @Override
+    public boolean delete(int id) {
+        return repository.delete(id);
     }
 }

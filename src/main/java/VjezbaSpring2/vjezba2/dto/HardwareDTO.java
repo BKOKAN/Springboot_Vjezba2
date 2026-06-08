@@ -1,43 +1,25 @@
 package VjezbaSpring2.vjezba2.dto;
 
 import VjezbaSpring2.vjezba2.domain.HardwareType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.message.Message;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class HardwareDTO {
 
+    @NotBlank(message = "Naziv nemoze biti prazan")
     private String naziv;
+    @PositiveOrZero(message = "Cijena mora biti positivna")
     private double cijena;
+    @NotBlank(message = "Tip hardwara nemoze biti prazan")
     private HardwareType tip;
-
-    public HardwareDTO() {
-    }
-
-    public HardwareDTO(String naziv, double cijena, HardwareType tip) {
-        this.naziv = naziv;
-        this.cijena = cijena;
-        this.tip = tip;
-    }
-
-    public String getNaziv() {
-        return naziv;
-    }
-
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
-    }
-
-    public double getCijena() {
-        return cijena;
-    }
-
-    public void setCijena(double cijena) {
-        this.cijena = cijena;
-    }
-
-    public HardwareType getTip() {
-        return tip;
-    }
-
-    public void setTip(HardwareType tip) {
-        this.tip = tip;
-    }
+    @PositiveOrZero(message = "Id mora biti pozitivan")
+    private int id;
 }

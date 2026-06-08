@@ -9,4 +9,10 @@ public interface HardwareRepository {
     List<Hardware> findAll();
 
     Hardware findBySifra(String sifra);
+
+    Hardware findbyId(int id);
+
+    Hardware addHardware(Hardware hardware);
+    Hardware updateHardware(int Id, Hardware hardware);
+    boolean delete(int id);
 }

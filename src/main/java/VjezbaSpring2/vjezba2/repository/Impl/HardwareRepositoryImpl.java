@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class HardwareRepositoryImpl implements HardwareRepository {
@@ -18,15 +17,15 @@ public class HardwareRepositoryImpl implements HardwareRepository {
 
         hardwareList.add(
                 new Hardware("CPU-001", "Ryzen 7 7800X3D",
-                        399.99, HardwareType.CPU, 10));
+                        399.99, HardwareType.CPU,1, 10));
 
         hardwareList.add(
                 new Hardware("GPU-001", "RTX 4070",
-                        649.99, HardwareType.GPU, 5));
+                        649.99, HardwareType.GPU,2, 5));
 
         hardwareList.add(
                 new Hardware("RAM-001", "Kingston Fury 32GB",
-                        129.99, HardwareType.RAM, 20));
+                        129.99, HardwareType.RAM,3, 20));
     }
 
     @Override
@@ -41,5 +40,43 @@ public class HardwareRepositoryImpl implements HardwareRepository {
                 .filter(element -> element.getSifra().equalsIgnoreCase(sifra))
                 .findFirst()
                 .get();
+    }
+
+    @Override
+    public Hardware findbyId(int id){
+        return (Hardware) hardwareList.stream()
+                .filter(hardware -> hardware.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public Hardware addHardware(Hardware hardware) {
+        hardwareList.add(hardware);
+
+        return hardware;
+    }
+
+    @Override
+    public Hardware updateHardware(int id, Hardware hardware) {
+        Hardware existing = findbyId(id);
+
+        if (existing == null) {
+            return null;
+        }
+
+        existing.setNaziv(hardware.getNaziv());
+        existing.setCijena(hardware.getCijena());
+        existing.setTip(hardware.getTip());
+        existing.setKolicina(hardware.getKolicina());
+
+        return existing;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return hardwareList.removeIf(
+                hardware -> hardware.getId() == id
+        );
     }
 }
