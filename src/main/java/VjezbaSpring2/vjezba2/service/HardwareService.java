@@ -15,9 +15,9 @@ public interface HardwareService {
 
     HardwareDTO getHardwareBySifra(String sifra);
 
-    HardwareDTO findbyId(int id);
+    HardwareDTO findbyId(Long id);
 
-    HardwareDTO updateHardware(int id, Hardware hardware);
+    HardwareDTO updateHardware(Long id, Hardware hardware);
 
-    boolean delete(int id);
+    boolean delete(Long id);
 }

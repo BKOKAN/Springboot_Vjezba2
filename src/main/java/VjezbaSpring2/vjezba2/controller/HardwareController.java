@@ -22,13 +22,13 @@ public class HardwareController {
         return service.getAllHardware();
     }
 
-    @GetMapping("/{sifra}")
+    @GetMapping("/sifra/{sifra}")
     public HardwareDTO getHardwareBySifra(@PathVariable String sifra) {
         return service.getHardwareBySifra(sifra);
     }
 
-    @GetMapping("/{id}")
-    public HardwareDTO findbyId(@PathVariable int id){
+    @GetMapping("/id/{id}")
+    public HardwareDTO findbyId(@PathVariable Long id){
         return service.findbyId(id);
     }
 
@@ -39,14 +39,14 @@ public class HardwareController {
 
     @PutMapping("/{id}")
     public HardwareDTO updateHardware(
-            @PathVariable int id,
+            @PathVariable Long id,
             @RequestBody Hardware hardware) {
 
         return service.updateHardware(id, hardware);
     }
 
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable Long id) {
         return service.delete(id);
     }
 }

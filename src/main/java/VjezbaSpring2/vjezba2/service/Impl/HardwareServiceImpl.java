@@ -60,7 +60,7 @@ public class HardwareServiceImpl implements HardwareService {
         );
     }
     @Override
-    public HardwareDTO findbyId(int id){
+    public HardwareDTO findbyId(Long id){
         Hardware hardware = repository.findbyId(id);
 
         if (hardware == null) {
@@ -75,7 +75,7 @@ public class HardwareServiceImpl implements HardwareService {
         );
     }
     @Override
-    public HardwareDTO updateHardware(int id, Hardware hardware) {
+    public HardwareDTO updateHardware(Long id, Hardware hardware) {
 
         Hardware updated = repository.updateHardware(id, hardware);
 
@@ -91,7 +91,7 @@ public class HardwareServiceImpl implements HardwareService {
         );
     }
     @Override
-    public boolean delete(int id) {
+    public boolean delete(Long id) {
         return repository.delete(id);
     }
 }

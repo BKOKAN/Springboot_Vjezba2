@@ -7,7 +7,8 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.logging.log4j.message.Message;
+
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -17,9 +18,9 @@ public class HardwareDTO {
     @NotBlank(message = "Naziv nemoze biti prazan")
     private String naziv;
     @PositiveOrZero(message = "Cijena mora biti positivna")
-    private double cijena;
-    @NotBlank(message = "Tip hardwara nemoze biti prazan")
+    private BigDecimal cijena;
+    @NotNull
     private HardwareType tip;
     @PositiveOrZero(message = "Id mora biti pozitivan")
-    private int id;
+    private Long id;
 }
