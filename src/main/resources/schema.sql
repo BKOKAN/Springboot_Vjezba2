@@ -1,6 +1,4 @@
-DROP TABLE IF EXISTS Hardware;
-DROP TABLE IF EXISTS Category;
-
+IF OBJECT_ID('dbo.Hardware', 'U') IS NULL
 CREATE TABLE Hardware
 (
     id INT IDENTITY PRIMARY KEY,
@@ -11,8 +9,9 @@ CREATE TABLE Hardware
     kolicina INT NOT NULL
 );
 
+IF OBJECT_ID('dbo.Category', 'U') IS NULL
 CREATE TABLE Category
 (
     ID INT IDENTITY PRIMARY KEY,
-    TIP varchar(50)
+    TIP VARCHAR(50)
 );

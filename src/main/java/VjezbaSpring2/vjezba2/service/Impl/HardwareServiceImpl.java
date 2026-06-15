@@ -27,7 +27,8 @@ public class HardwareServiceImpl implements HardwareService {
                         element.getNaziv(),
                         element.getCijena(),
                         element.getTip(),
-                        element.getId()
+                        element.getId(),
+                        element.getKolicina()
                 ))
                 .toList();
     }
@@ -41,7 +42,8 @@ public class HardwareServiceImpl implements HardwareService {
                 saved.getNaziv(),
                 saved.getCijena(),
                 saved.getTip(),
-                saved.getId()
+                saved.getId(),
+                saved.getKolicina()
         );
     }
 
@@ -58,7 +60,8 @@ public class HardwareServiceImpl implements HardwareService {
                 hardware.getNaziv(),
                 hardware.getCijena(),
                 hardware.getTip(),
-                hardware.getId()
+                hardware.getId(),
+                hardware.getKolicina()
         );
     }
 
@@ -74,7 +77,8 @@ public class HardwareServiceImpl implements HardwareService {
                 hardware.getNaziv(),
                 hardware.getCijena(),
                 hardware.getTip(),
-                hardware.getId()
+                hardware.getId(),
+                hardware.getKolicina()
         );
     }
 
@@ -91,7 +95,8 @@ public class HardwareServiceImpl implements HardwareService {
                 updated.getNaziv(),
                 updated.getCijena(),
                 updated.getTip(),
-                updated.getId()
+                updated.getId(),
+                hardware.getKolicina()
         );
     }
 

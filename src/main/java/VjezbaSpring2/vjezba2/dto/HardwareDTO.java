@@ -17,11 +17,16 @@ public class HardwareDTO {
 
     @NotBlank(message = "Naziv nemoze biti prazan")
     private String naziv;
-    @PositiveOrZero(message = "Cijena mora biti positivna")
+
+    @PositiveOrZero(message = "Cijena mora biti pozitivna")
     private BigDecimal cijena;
+
     @NotNull
     private HardwareType tip;
+
     @PositiveOrZero(message = "Id mora biti pozitivan")
     private Long id;
 
+    @PositiveOrZero(message = "Kolicina mora biti pozitivna")
+    private int kolicina;
 }
