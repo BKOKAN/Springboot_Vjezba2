@@ -1,9 +1,18 @@
-CREATE TABLE hardware
+DROP TABLE IF EXISTS Hardware;
+DROP TABLE IF EXISTS Category;
+
+CREATE TABLE Hardware
 (
-    id IDENTITY PRIMARY KEY,
+    id INT IDENTITY PRIMARY KEY,
     sifra VARCHAR(50) NOT NULL,
     naziv VARCHAR(255) NOT NULL,
     cijena DECIMAL(10,2) NOT NULL,
     tip VARCHAR(50) NOT NULL,
     kolicina INT NOT NULL
+);
+
+CREATE TABLE Category
+(
+    ID INT IDENTITY PRIMARY KEY,
+    TIP varchar(50)
 );

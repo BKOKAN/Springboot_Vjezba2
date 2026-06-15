@@ -75,6 +75,7 @@ public class HardwareJdbcRepositoryImpl implements HardwareRepository {
                 id
         );
 
+
         return findbyId(id);
     }
 
